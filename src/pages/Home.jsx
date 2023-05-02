@@ -11,7 +11,8 @@ const Home = () => {
 
   return (
     <>
-    <section className={`min-h-[100vh] h-auto ${mode.background} font-Nunito`}>
+    <section className={`h-screen-16 ${mode.background} font-Nunito`}>
+      <div className={`${mode.background} h-auto`}>
       <div className={`w-[1180px] mx-auto pt-12`}>
         <div className="flex justify-between items-start">
           <Search />
@@ -19,6 +20,7 @@ const Home = () => {
         </div>
         <Country />
       </div>
+        </div>
     </section>
     </>
   )

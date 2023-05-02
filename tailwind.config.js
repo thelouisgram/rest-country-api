@@ -16,7 +16,10 @@ export default {
         md: '1060px',
         lg: '1200px',
         xl: '1700px'
-      }
+      },
+       height: {
+        'screen-16': 'calc(100vh - 72px)', 
+      },
     },
   },
   plugins: [],

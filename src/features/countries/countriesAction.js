@@ -12,3 +12,15 @@ export const showAllCountries = createAsyncThunk("countriesShowAll", async(_, th
         return thunkAPI.rejectWithValue(message)
     }
 })
+
+export const searchByCode = createAsyncThunk("countries/searchByCode", async(code, thunkAPI) => {
+    try{
+        const response = await axios.get(`https://restcountries.com/v3.1/alpha/${code}`)
+        return response.data
+    }
+    catch(err){
+        const message = (err.response && err.response.data) || err.message;
+
+        return thunkAPI.rejectWithValue(message)
+    }
+})

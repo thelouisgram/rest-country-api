@@ -25,12 +25,12 @@ const Country = () => {
     }, [dispatch, error, success])
 
   return (
-    <section className={`flex flex-wrap justify-between py-12 ${mode.background} h-auto`}>
+    <section className={`flex flex-wrap justify-between py-12 h-auto`}>
       {loading ? <h1 className={`${mode.text} text-[16px]`}>Loading...</h1> :
         ( countryData.length > 0 && 
           countryData.map((item, index)=>{
             return(
-              <div 
+              <Link to={`/${item.cioc}`}
               key={index}
               className={` w-[250px] rounded-[5px] ${mode.elements} mb-12 overflow-hidden shadow-md cursor-pointer`}>
                 <img src={item.flags.svg} className="h-[150px] w-full object-cover shadow-sm" 
@@ -47,7 +47,7 @@ const Country = () => {
                   <p className="font-[600] text-[16px]">Region: <span className='text-[16px] font-[300]'>{item.region}</span></p>
                   <p className="font-[600] text-[16px]">Capital: <span className='text-[16px] font-[300]'>{item.capital}</span></p>
                 </div>
-              </div>
+              </Link>
             )
           })
       )}

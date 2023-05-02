@@ -13,13 +13,13 @@ const Header = () => {
 	};
 	return (
 		<>
-		<header
-			className={`w-full ${mode.elements} flex justify-between shadow-md md:px-20 md:py-5 items-center 
+		<header id="header"
+			className={`w-full ${mode.elements} flex h-[72px] justify-between shadow-md md:px-20  items-center 
         	font-Nunito ${mode.text}`}>
 			<div className={`font-[800] text-[22px]`}>Where in the world?</div>
             <div onClick={handleToggle} className='flex items-center gap-1 cursor-pointer text-[15px]'>
-                {darkMode ? <i className="fa-regular fa-moon"></i> : <i className="fa-solid fa-moon"></i> }
-				<p className="font-[600]">{darkMode ? 'Light' : 'Dark'} Mode</p>
+                {darkMode ? <i className="fa-solid fa-moon"></i> : <i className="fa-regular fa-moon"></i> }
+				<p className="font-[600]">{darkMode ? 'Dark' : 'Light'} Mode</p>
 			</div>
 		</header>
 		<Outlet />
