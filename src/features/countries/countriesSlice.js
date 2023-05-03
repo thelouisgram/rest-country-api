@@ -21,6 +21,7 @@ const countriesSlice = createSlice({
             state.message = "";
             state.countrySearched = [];
             state.region = ""
+            state.searchTerm = ''
         },
         setRegion: (state, action) => {
             state.region = action.payload

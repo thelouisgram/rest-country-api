@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from "react"
 import { searchByRegion, showAllCountries } from "../features/countries/countriesAction";
 import { Link } from 'react-router-dom';
+import Loading from "./Loading";
 
 
 const Country = () => {
@@ -24,7 +25,7 @@ const Country = () => {
 
   return (
     <section className={`flex flex-wrap gap-x-[60px] py-12 h-auto`}>
-      {loading ? <h1 className={`${mode.text} text-[16px]`}>Loading...</h1> :
+      {loading ? <Loading /> :
         (data.length > 0 &&
           data.map((item, index) => {
             return (

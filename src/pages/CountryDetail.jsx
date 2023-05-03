@@ -4,6 +4,7 @@ import { Link, useParams } from 'react-router-dom';
 import { useEffect } from 'react';
 import { searchByCode } from '../features/countries/countriesAction';
 import { reset } from '../features/countries/countriesSlice'
+import Loading from '../components/Loading'
 
 const CountryDetail = () => {
   const darkMode = useSelector((state) => state.theme.darkMode);
@@ -23,7 +24,7 @@ const CountryDetail = () => {
 
   return (
     <section className={`h-screen-16 ${mode.background} font-Nunito ${mode.text}`}>
-      <div className={`w-[1180px] mx-auto pt-12`}>
+      <div className={`w-[1180px] mx-auto py-12`}>
         <Link
           to="/"
           className={`flex gap-2 justify-center py-1 ${mode.elements} rounded-[5px] w-[125px]
@@ -34,7 +35,7 @@ const CountryDetail = () => {
         </Link>
         <div className="pt-12">
           {loading ? (
-            <h1 className={`${mode.text} text-[16px]`}>Loading...</h1>
+            <Loading /> 
           ) : countrySearched.length > 0 ?
             (<div className="flex items-center">
               <div className="w-[600px] flex justify-start">
