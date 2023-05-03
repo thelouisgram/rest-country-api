@@ -24,7 +24,8 @@ const CountryDetail = () => {
 
   return (
     <section className={`h-screen-16 ${mode.background} font-Nunito ${mode.text}`}>
-      <div className={`w-[1180px] mx-auto py-12`}>
+      <div className={`${mode.background} h-auto`}>
+      <div className={`w-[1180px]  mx-auto py-12`}>
         <Link
           to="/"
           className={`flex gap-2 justify-center py-1 ${mode.elements} rounded-[5px] w-[125px]
@@ -107,6 +108,7 @@ const CountryDetail = () => {
               <div>No Details Found</div>
               )}
         </div>
+      </div>
       </div>
     </section>
   );
