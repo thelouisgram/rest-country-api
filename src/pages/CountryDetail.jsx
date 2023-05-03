@@ -8,7 +8,7 @@ import { reset } from '../features/countries/countriesSlice'
 const CountryDetail = () => {
   const darkMode = useSelector((state) => state.theme.darkMode);
   const mode = darkMode ? color.dark : color.light;
-  const { success, error, loading, countrySearched } = useSelector((state) => state.country);
+  const {loading, countrySearched } = useSelector((state) => state.country);
   const dispatch = useDispatch();
   const { code } = useParams();
   const item = countrySearched[0];
@@ -20,7 +20,7 @@ const CountryDetail = () => {
       dispatch(searchByCode(code.toLowerCase()));
     }
   }, [dispatch, code]);
-  
+
   return (
     <section className={`h-screen-16 ${mode.background} font-Nunito ${mode.text}`}>
       <div className={`w-[1180px] mx-auto pt-12`}>

@@ -1,40 +1,38 @@
 import color from "../style"
-import { useSelector, useDispatch } from 'react-redux'; 
-import { useState, useEffect } from "react"
-import { showAllCountries } from "../features/countries/countriesAction";
+import { useSelector, useDispatch } from 'react-redux';
+import { useEffect } from "react"
+import { searchByRegion, showAllCountries } from "../features/countries/countriesAction";
 import { Link } from 'react-router-dom';
 
 
 const Country = () => {
-    const darkMode = useSelector((state) => state.theme.darkMode);
-    const mode = darkMode ? color.dark : color.light;
-    const {success, error, loading, countriesData} = useSelector((state) => state.country)
-    const dispatch = useDispatch()
-    const [countryData, setCountryData] = useState([])
+  const darkMode = useSelector((state) => state.theme.darkMode);
+  const mode = darkMode ? color.dark : color.light;
+  const { success, error, loading, countriesData, region, searchTerm } = useSelector((state) => state.country)
+  const dispatch = useDispatch()
 
-    useEffect(()=>{
-      dispatch(showAllCountries())
+  useEffect(() => {
+    dispatch(showAllCountries())
 
-        if (success){
-          setCountryData(countriesData)
-        }
+    if (region) {
+      dispatch(searchByRegion(region.toLowerCase()))
+    }
 
-        if (error){
-          console.log(error)
-        }
-    }, [dispatch, error, success])
+  }, [dispatch, error, success, region, searchTerm])
+
+  const data = countriesData.filter((item) => item.name.common.toLowerCase().includes(searchTerm))
 
   return (
-    <section className={`flex flex-wrap justify-between py-12 h-auto`}>
+    <section className={`flex flex-wrap gap-x-[60px] py-12 h-auto`}>
       {loading ? <h1 className={`${mode.text} text-[16px]`}>Loading...</h1> :
-        ( countryData.length > 0 && 
-          countryData.map((item, index)=>{
-            return(
+        (data.length > 0 &&
+          data.map((item, index) => {
+            return (
               <Link to={`/${item.cioc}`}
-              key={index}
-              className={` w-[250px] rounded-[5px] ${mode.elements} mb-12 overflow-hidden shadow-md cursor-pointer`}>
-                <img src={item.flags.svg} className="h-[150px] w-full object-cover shadow-sm" 
-                alt={item.flag.alt}/>
+                key={index}
+                className={` w-[250px] rounded-[5px] ${mode.elements} mb-12 overflow-hidden shadow-md cursor-pointer`}>
+                <img src={item.flags.svg} className="h-[150px] w-full object-cover shadow-sm"
+                  alt={item.flag.alt} />
                 <div className={` px-6 pt-8 pb-10 ${mode.text}`}>
                   <h3 className="font-[800] text-[18px] mb-4 ">{item.name.common}</h3>
                   <p className="font-[600] text-[16px]">
@@ -50,8 +48,8 @@ const Country = () => {
               </Link>
             )
           })
-      )}
-        
+        )}
+
     </section>
   )
 }
