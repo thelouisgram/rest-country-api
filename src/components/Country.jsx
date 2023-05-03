@@ -1,9 +1,10 @@
 import color from "../style"
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';    
 import { useEffect } from "react"
 import { searchByRegion, showAllCountries } from "../features/countries/countriesAction";
 import { Link } from 'react-router-dom';
 import Loading from "./Loading";
+import NotFound from "./NotFound";
 
 
 const Country = () => {
@@ -42,14 +43,18 @@ const Country = () => {
                       {item.population.toLocaleString()}
                     </span>
                   </p>
-
                   <p className="font-[600] text-[16px]">Region: <span className='text-[16px] font-[300]'>{item.region}</span></p>
                   <p className="font-[600] text-[16px]">Capital: <span className='text-[16px] font-[300]'>{item.capital}</span></p>
                 </div>
               </Link>
             )
           })
-        )}
+        )
+      }
+      {!loading && data.length < 1 &&
+        <NotFound />
+      }
+
 
     </section>
   )

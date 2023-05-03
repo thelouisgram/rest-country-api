@@ -17,7 +17,7 @@ const color = {
         // (Dark Mode Text )
         text: "text-[#ffffff]" ,
         // (Dark Mode Input)
-        input: "text-[#ffffff]"
+        input: "text-[#2b3743]"
     }
 
 };

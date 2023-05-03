@@ -5,6 +5,7 @@ import { useEffect } from 'react';
 import { searchByCode } from '../features/countries/countriesAction';
 import { reset } from '../features/countries/countriesSlice'
 import Loading from '../components/Loading'
+import NoDetails from '../components/NoDetails'
 
 const CountryDetail = () => {
   const darkMode = useSelector((state) => state.theme.darkMode);
@@ -92,20 +93,22 @@ const CountryDetail = () => {
                     </p>
                   </div>
                 </div>
-                  <div className='flex gap-2 flex-wrap items-center w-full'>
-                  <p className="font-[600] text-[16px] ">
-                    Bordering Countries:
-                  </p>
-                  {Object.values(item.borders).map((border, index) => (
-                    <Link key={index} to={`/${border}`} className={`py-1 px-4 shadow-md font-[600] rounded-[5px] ${mode.elements}`}>
-                      <p>{border}</p>
-                    </Link>
-                  ))}
-                </div>
+                    {item.borders ? (
+                      <div className='flex gap-2 flex-wrap items-center w-full'>
+                        <p className="font-[600] text-[16px] ">
+                          Bordering Countries:
+                        </p>
+                        {item.borders.map((border, index) => (
+                          <Link key={index} to={`/${border}`} className={`py-1 px-4 shadow-md font-[600] rounded-[5px] ${mode.elements}`}>
+                            <p>{border}</p>
+                          </Link>
+                        ))}
+                      </div>
+                    ) : null}
                 </div>
               </div>)
               : (
-              <div>No Details Found</div>
+              <NoDetails />
               )}
         </div>
       </div>

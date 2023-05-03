@@ -15,11 +15,11 @@ const Search = () => {
   return (
     <div className={`flex items-center rounded-[5px] gap-4 px-6 py-3  w-[400px] font-Nunito shadow-md
          ${mode.elements}`}>
-          <span className={`material-symbols-outlined ${mode.input}`}>
+          <span className={`material-symbols-outlined ${mode.text}`}>
               search
           </span>
       <input 
-              className={`bg-transparent text-[14px] font-[600] outline-none w-full ${mode.input}`}
+              className={`bg-transparent text-[14px] font-[600] outline-none w-full ${mode.text}`}
         placeholder="Search for a country..."
         value={searchTerm}
         onChange={handleInputValueChange}/>
