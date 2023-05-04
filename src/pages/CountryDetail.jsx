@@ -5,6 +5,7 @@ import { useEffect } from 'react';
 import { searchByCode } from '../features/countries/countriesAction';
 import Loading from '../components/Loading'
 import NoDetails from '../components/NoDetails'
+import { resetDetails } from '../features/countries/countriesSlice';
 
 const CountryDetail = () => {
   const darkMode = useSelector((state) => state.theme.darkMode);
@@ -18,6 +19,8 @@ const CountryDetail = () => {
     if (code) {
       dispatch(searchByCode(code.toLowerCase()));
     }
+
+    (dispatch(resetDetails()))
   }, [dispatch, code]);
 
   return (
