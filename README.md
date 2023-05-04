@@ -1,6 +1,6 @@
 # REST Countries API with color theme switcher
 
-This is a solution to the REST Countries API with color theme switcher challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/rest-countries-api-with-color-theme-switcher-5cacc469fec04111f7b848ca).
+This is a solution to the [REST Countries API with color theme switcher challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/rest-countries-api-with-color-theme-switcher-5cacc469fec04111f7b848ca).
 Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
 <img src="https://github.com/thelouisgram/rest-country-api/blob/main/src/assets/desktop-preview.jpg">
@@ -35,12 +35,12 @@ Your users should be able to:
 
                 This is a desktop View.
                  
-<img src=https://github.com/thelouisgram/rest-country-api/blob/main/src/assets/desktop-view.png">
+<img src="https://github.com/thelouisgram/rest-country-api/blob/main/src/assets/desktop-view.png">
 
                  This is a mobile view.
                  
   <p align="center">
-   <img src="https://github.com/thelouisgram/rest-country-api/blob/main/src/assets/mobile-view.jpg">
+   <img src="https://github.com/thelouisgram/rest-country-api/blob/main/src/assets/mobile-view.jpg" height="500px">
   </p>
   
 ### Links
