@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import Loading from "./Loading";
 import NotFound from "./NotFound";
 import Error404 from "./Error404"
+import { reset } from "../features/countries/countriesSlice";
 
 
 
@@ -17,6 +18,7 @@ const Country = () => {
 
   useEffect(() => {
     dispatch(showAllCountries())
+    dispatch(reset());
 
     if (region) {
       dispatch(searchByRegion(region.toLowerCase()))
@@ -44,12 +46,12 @@ const Country = () => {
               <h3 className="font-[800] text-[18px] mb-4 ">{item.name.common}</h3>
               <p className="font-[600] text-[16px]">
                 Population:{' '}
-                <span className="text-[16px] font-[300]">
+                <span className={`text-[16px] font-[600] ${mode.span}`}>
                   {item.population.toLocaleString()}
                 </span>
               </p>
-              <p className="font-[600] text-[16px]">Region: <span className='text-[16px] font-[300]'>{item.region}</span></p>
-              <p className="font-[600] text-[16px]">Capital: <span className='text-[16px] font-[300]'>{item.capital}</span></p>
+              <p className="font-[600] text-[16px]">Region: <span className={`text-[16px] font-[600] ${mode.span}`}>{item.region}</span></p>
+              <p className="font-[600] text-[16px]">Capital: <span className={`text-[16px] font-[600] ${mode.span}`}>{item.capital}</span></p>
             </div>
           </Link>
         ))

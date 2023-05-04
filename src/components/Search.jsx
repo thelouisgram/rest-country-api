@@ -14,12 +14,10 @@ const Search = () => {
 
   return (
     <div className={`flex items-center rounded-[5px] gap-4 px-6 py-3 w-full ss:w-[400px] font-Nunito shadow-md
-         ${mode.elements}`}>
-          <span className={`material-symbols-outlined ${mode.text}`}>
-              search
-          </span>
+         ${mode.elements} ${mode.span}`}>
+          <i className="fa-solid fa-magnifying-glass"></i>
       <input 
-              className={`bg-transparent text-[14px] font-[600] outline-none w-full ${mode.text}`}
+              className={`bg-transparent text-[14px] font-[600] outline-none w-full `}
         placeholder="Search for a country..."
         value={searchTerm}
         onChange={handleInputValueChange}/>
