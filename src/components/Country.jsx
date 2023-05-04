@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import Loading from "./Loading";
 import NotFound from "./NotFound";
 import Error404 from "./Error404"
-import {reset} from "../features/countries/countriesSlice";
+import { reset } from "../features/countries/countriesSlice";
 
 
 const Country = () => {
@@ -17,14 +17,12 @@ const Country = () => {
 
   useEffect(() => {
     dispatch(showAllCountries())
-    dispatch(reset())
-
 
     if (region) {
       dispatch(searchByRegion(region.toLowerCase()))
     }
     
-
+    dispatch(reset())
   }, [dispatch, error, success, region, searchTerm])
 
   const data = countriesData.filter((item) => item.name.common.toLowerCase().includes(searchTerm))
@@ -32,36 +30,51 @@ const Country = () => {
   return (
     <section className={`flex flex-col items-center ss:justify-center md:justify-start  w-full ss:px-4 
     md:px-0 ss:flex-row ss:flex-wrap ss:gap-x-[60px] py-12 h-auto`}>
-      { loading ? (
+      {loading ? (
         <Loading />
       ) : error ? (
         <Error404 />
-      ) : data.length > 0 ? (
+      ) : success && data.length > 0 ? (
         data.map((item, index) => (
-          <Link to={`/${item.cioc}`}
+          <Link
+            to={`/${item.cioc}`}
             key={index}
-            className={`w-[250px] rounded-[5px] ${mode.elements} mb-12 overflow-hidden shadow-md cursor-pointer`}>
-            <img src={item.flags.svg} className="md:h-[150px] w-full object-cover shadow-sm"
-              alt={item.flag.alt} />
+            className={`w-[250px] rounded-[5px] ${mode.elements} mb-12 overflow-hidden shadow-md cursor-pointer`}
+          >
+            <img
+              src={item.flags.svg}
+              className="md:h-[150px] w-full object-cover shadow-sm"
+              alt={item.flag.alt}
+            />
             <div className={` px-6 pt-8 pb-10 ${mode.text}`}>
-              <h3 className="font-[800] text-[18px] mb-4 ">{item.name.common}</h3>
+              <h3 className="font-[800] text-[18px] mb-4 ">
+                {item.name.common}
+              </h3>
               <p className="font-[600] text-[16px]">
                 Population:{' '}
                 <span className={`text-[16px] font-[600] ${mode.span}`}>
                   {item.population.toLocaleString()}
                 </span>
               </p>
-              <p className="font-[600] text-[16px]">Region: <span className={`text-[16px] font-[600] ${mode.span}`}>{item.region}</span></p>
-              <p className="font-[600] text-[16px]">Capital: <span className={`text-[16px] font-[600] ${mode.span}`}>{item.capital}</span></p>
+              <p className="font-[600] text-[16px]">
+                Region:{' '}
+                <span className={`text-[16px] font-[600] ${mode.span}`}>
+                  {item.region}
+                </span>
+              </p>
+              <p className="font-[600] text-[16px]">
+                Capital:{' '}
+                <span className={`text-[16px] font-[600] ${mode.span}`}>
+                  {item.capital}
+                </span>
+              </p>
             </div>
           </Link>
         ))
-      ) : (
+      ) : success && data.length === 0 ? (
         <NotFound />
-      )}
-
-
-    </section>
+      ) : null}
+   </section>
   )
 }
 

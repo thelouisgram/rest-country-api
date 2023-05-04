@@ -15,13 +15,10 @@ const countriesSlice = createSlice({
     },
     reducers:{
         reset: (state) => {
-            state.loading = false;
-            state.error = false;
-            state.success = false;
             state.message = "";
             state.countrySearched = [];
             state.region = ""
-            state.searchTerm = ''
+            state.error = false;
         },
         setRegion: (state, action) => {
             state.region = action.payload

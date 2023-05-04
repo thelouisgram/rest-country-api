@@ -5,7 +5,6 @@ import { useEffect } from 'react';
 import { searchByCode } from '../features/countries/countriesAction';
 import Loading from '../components/Loading'
 import NoDetails from '../components/NoDetails'
-import {reset} from '../features/countries/countriesSlice'
 
 const CountryDetail = () => {
   const darkMode = useSelector((state) => state.theme.darkMode);
@@ -16,7 +15,6 @@ const CountryDetail = () => {
   const item = countrySearched[0];
 
   useEffect(() => {
-    dispatch(reset())
     if (code) {
       dispatch(searchByCode(code.toLowerCase()));
     }
@@ -29,7 +27,7 @@ const CountryDetail = () => {
           <Link
             to="/"
             className={`flex gap-2 justify-center py-1 ${mode.elements} ${mode.text} rounded-[5px] w-[125px]
-          shadow-md items-center`}
+          shadow-md items-center `}
           >
             <i className="fa-solid fa-arrow-left"></i>
             <p>Back</p>
