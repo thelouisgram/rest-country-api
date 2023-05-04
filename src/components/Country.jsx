@@ -60,7 +60,7 @@ const Country = () => {
 						<img
 							src={item.flags.svg}
 							className="md:h-[150px] w-[250px] object-cover shadow-sm"
-							alt={item.flag.alt}
+							alt={item.flags.alt}
 						/>
 						{/* Country's info */}
 						<div className={` px-6 pt-8 pb-10 ${mode.text}`}>
