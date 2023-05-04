@@ -1,4 +1,4 @@
-import color from '../style';
+import theme from '../style';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
 import { useEffect } from 'react';
@@ -9,7 +9,7 @@ import { resetDetails } from '../features/countries/countriesSlice';
 
 const CountryDetail = () => {
   const darkMode = useSelector((state) => state.theme.darkMode);
-  const mode = darkMode ? color.dark : color.light;
+  const mode = darkMode ? theme.dark : theme.light;
   const { loading, countrySearched } = useSelector((state) => state.country);
   const dispatch = useDispatch();
   const { code } = useParams();

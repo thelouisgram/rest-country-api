@@ -1,15 +1,20 @@
 import { useSelector, useDispatch } from 'react-redux';
-import color from '../style';
+import theme from '../style';
 import { toggleDropDown } from '../store/filterDropDownSlice';
 import { useState, useEffect } from 'react';
 import { setRegion } from '../features/countries/countriesSlice';
 
 const Filter = () => {
-	const regions = [ 'Africa', 'Americas', 'Asia', 'Europe', 'Oceania' ];
-	const [ filter, setFilter ] = useState('');
+	// regions array
+	const regions = ['Africa', 'Americas', 'Asia', 'Europe', 'Oceania'];
+	// local state to store region
+	const [filter, setFilter] = useState('');
+	// imported darkMode state from themeSlice
 	const darkMode = useSelector((state) => state.theme.darkMode);
+	// Ternary to switch between dark and light theme
+	const mode = darkMode ? theme.dark : theme.light;
+	// global state for dropDown; state.store(name).slice(name). Format to help understand
 	const dropDown = useSelector((state) => state.dropDown.dropDown);
-	const mode = darkMode ? color.dark : color.light;
 	const dispatch = useDispatch();
 
 	const handleDropDown = () => {
@@ -18,11 +23,12 @@ const Filter = () => {
 
 	useEffect(
 		() => {
+			// if filter isn't empty; region is assigned to filter
 			if (filter !== '') {
 				dispatch(setRegion(filter.toLowerCase()));
 			}
 		},
-		[ filter, dispatch ]
+		[filter, dispatch]
 	);
 
 	return (
@@ -34,8 +40,10 @@ const Filter = () => {
 			>
 				<input
 					type="text"
+					// input is set to read-only
 					readOnly
 					placeholder="Filter by Region"
+					// value of input is assigned to filter
 					value={filter}
 					className={`bg-transparent w-[100px] outline-none cursor-pointer`}
 				/>

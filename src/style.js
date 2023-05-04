@@ -1,4 +1,4 @@
-const color = {
+const theme = {
     light:{
         // ( Light Mode Elements)
         elements: "bg-[#ffffff]",
@@ -25,4 +25,4 @@ const color = {
     }
 
 };
-export default color;
+export default theme;

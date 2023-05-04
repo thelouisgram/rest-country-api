@@ -7,7 +7,6 @@ export const showAllCountries = createAsyncThunk('countriesShowAll', async (_, t
 		return response.data;
 	} catch (err) {
 		const message = (err.response && err.response.data) || err.message;
-
 		return thunkAPI.rejectWithValue(message);
 	}
 });
@@ -18,7 +17,6 @@ export const searchByCode = createAsyncThunk('countries/searchByCode', async (co
 		return response.data;
 	} catch (err) {
 		const message = (err.response && err.response.data) || err.message;
-
 		return thunkAPI.rejectWithValue(message);
 	}
 });

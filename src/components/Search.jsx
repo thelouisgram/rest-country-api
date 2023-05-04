@@ -1,11 +1,11 @@
-import color from '../style';
+import theme from '../style';
 import { useDispatch, useSelector } from 'react-redux';
 import { setSearchTerm } from '../features/countries/countriesSlice';
 
 const Search = () => {
 	const { searchTerm } = useSelector((state) => state.country);
 	const darkMode = useSelector((state) => state.theme.darkMode);
-	const mode = darkMode ? color.dark : color.light;
+	const mode = darkMode ? theme.dark : theme.light;
 	const dispatch = useDispatch();
 
 	const handleInputValueChange = (e) => {
