@@ -13,7 +13,7 @@ const Search = () => {
     }
 
   return (
-    <div className={`flex items-center rounded-[5px] gap-4 px-6 py-3  w-[400px] font-Nunito shadow-md
+    <div className={`flex items-center rounded-[5px] gap-4 px-6 py-3 w-full ss:w-[400px] font-Nunito shadow-md
          ${mode.elements}`}>
           <span className={`material-symbols-outlined ${mode.text}`}>
               search

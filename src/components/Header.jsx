@@ -14,10 +14,10 @@ const Header = () => {
 	return (
 		<>
 		<header id="header"
-			className={`w-full ${mode.elements} flex h-[72px] justify-between shadow-md md:px-20  items-center 
+			className={`w-full ${mode.elements} flex h-[72px] justify-between shadow-md px-4 md:px-20  items-center 
         	font-Nunito ${mode.text}`}>
-			<div className={`font-[800] text-[22px]`}>Where in the world?</div>
-            <div onClick={handleToggle} className='flex items-center gap-1 cursor-pointer text-[15px]'>
+			<div className={`font-[800] text-[16px] md:text-[22px]`}>Where in the world?</div>
+            <div onClick={handleToggle} className='flex items-center gap-1 cursor-pointer text-[13px] md:text-[15px]'>
                 {darkMode ? <i className="fa-solid fa-moon"></i> : <i className="fa-regular fa-moon"></i> }
 				<p className="font-[600]">{darkMode ? 'Dark' : 'Light'} Mode</p>
 			</div>

@@ -6,11 +6,12 @@ import { searchByCode } from '../features/countries/countriesAction';
 import { reset } from '../features/countries/countriesSlice'
 import Loading from '../components/Loading'
 import NoDetails from '../components/NoDetails'
+import Error404 from '../components/Error404'
 
 const CountryDetail = () => {
   const darkMode = useSelector((state) => state.theme.darkMode);
   const mode = darkMode ? color.dark : color.light;
-  const {loading, countrySearched } = useSelector((state) => state.country);
+  const {loading, countrySearched, error } = useSelector((state) => state.country);
   const dispatch = useDispatch();
   const { code } = useParams();
   const item = countrySearched[0];
@@ -26,7 +27,7 @@ const CountryDetail = () => {
   return (
     <section className={`h-screen-16 ${mode.background} font-Nunito ${mode.text}`}>
       <div className={`${mode.background} h-auto`}>
-      <div className={`w-[1180px]  mx-auto py-12`}>
+      <div className={`w-full md:w-[1180px] px-6 ss:px-10 md:px-0 mx-auto py-12`}>
         <Link
           to="/"
           className={`flex gap-2 justify-center py-1 ${mode.elements} rounded-[5px] w-[125px]
@@ -39,13 +40,13 @@ const CountryDetail = () => {
           {loading ? (
             <Loading /> 
           ) : countrySearched.length > 0 ?
-            (<div className="flex items-center">
-              <div className="w-[600px] flex justify-start">
-                <img src={item.flags.svg} className="w-[500px] h-auto object-cover shadow-md" />
+            (<div className="flex flex-col md:flex-row md:items-center">
+              <div className="ss:w-[600px] flex justify-start">
+                <img src={item.flags.svg} className="w-full mb-8 md:mb-0 ss:w-[500px] h-auto object-cover shadow-md" />
               </div>
               <div className="flex flex-1 flex-col">
                 <h1 className="font-[600] text-[24px] mb-6">{item.name.common}</h1>
-                <div className="flex justify-between gap-3 mb-8">
+                <div className="flex flex-col md:flex-row justify-between gap-8 md:gap-3 mb-8">
                   <div className="flex flex-col gap-2">
                     <p className="font-[600] text-[16px]">
                       Official Name:{' '}
