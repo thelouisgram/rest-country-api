@@ -6,21 +6,21 @@ import { searchByCode } from '../features/countries/countriesAction';
 import { reset } from '../features/countries/countriesSlice'
 import Loading from '../components/Loading'
 import NoDetails from '../components/NoDetails'
+import Error404 from '../components/Error404'
 
 const CountryDetail = () => {
   const darkMode = useSelector((state) => state.theme.darkMode);
   const mode = darkMode ? color.dark : color.light;
-  const { loading, countrySearched } = useSelector((state) => state.country);
+  const { loading, countrySearched, error } = useSelector((state) => state.country);
   const dispatch = useDispatch();
   const { code } = useParams();
   const item = countrySearched[0];
 
   useEffect(() => {
-    dispatch(reset())
+    
     if (code) {
       dispatch(searchByCode(code.toLowerCase()));
     }
-
   }, [dispatch, code]);
 
   return (
