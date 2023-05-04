@@ -41,7 +41,9 @@ const CountryDetail = () => {
             ) : countrySearched.length > 0 ?
               (<div className="flex flex-col md:flex-row md:items-center">
                 <div className="ss:w-[600px] flex justify-start">
-                  <img src={item.flags.svg} className="w-full mb-10 md:mb-0 ss:w-[500px] h-auto object-cover shadow-md" />
+                  <img src={item.flags.svg} 
+                  alt={item.flags.alt}
+                  className="w-full mb-10 md:mb-0 ss:w-[500px] h-auto object-cover shadow-md" />
                 </div>
                 <div className="flex flex-1 flex-col">
                   <h1 className="font-[600] text-[24px] mb-6">{item.name.common}</h1>
