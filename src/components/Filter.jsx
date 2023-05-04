@@ -28,7 +28,7 @@ const Filter = () => {
     <div>
           <div 
                onClick={handleDropDown} 
-               className={`flex items-center ${mode.text} rounded-[5px] justify-between w-[175px] px-4 py-3 shadow-md
+               className={`flex items-center ${mode.text} rounded-[5px] justify-between w-[195px] px-4 py-3 shadow-md
                text-[14px] font-[600] ${mode.elements} relative mb-1 cursor-pointer`}>
               <input
               type='text'
@@ -43,7 +43,7 @@ const Filter = () => {
         </div>
         {dropDown && 
               <div className={`absolute ${mode.text} rounded-[5px] px-4 py-3 flex flex-col 
-               gap-2 shadow-md w-[175px] z-[3] text-[14px] font-[600] ${mode.elements}`}>
+               gap-2 shadow-md w-[195px] z-[3] text-[14px] font-[600] ${mode.elements}`}>
                   {regions.map((item, index) => {
                     return (
                     <p 
