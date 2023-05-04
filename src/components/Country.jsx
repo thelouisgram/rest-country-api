@@ -35,32 +35,21 @@ const Country = () => {
         <Error404 />
       ) : data.length > 0 ? (
         data.map((item, index) => (
-          <Link
-            to={`/${item.cioc}`}
+          <Link to={`/${item.cioc}`}
             key={index}
-            className={`w-[250px] rounded-[5px] ${mode.elements} mb-12 overflow-hidden shadow-md cursor-pointer`}
-          >
-            <img
-              src={item.flags.svg}
-              className="md:h-[150px] w-full object-cover shadow-sm"
-              alt={item.flag.alt}
-            />
-            <div className={`px-6 pt-8 pb-10 ${mode.text}`}>
-              <h3 className="font-bold text-lg mb-4">{item.name.common}</h3>
-              <p className="font-semibold text-base">
+            className={`w-[250px] rounded-[5px] ${mode.elements} mb-12 overflow-hidden shadow-md cursor-pointer`}>
+            <img src={item.flags.svg} className="md:h-[150px] w-full object-cover shadow-sm"
+              alt={item.flag.alt} />
+            <div className={` px-6 pt-8 pb-10 ${mode.text}`}>
+              <h3 className="font-[800] text-[18px] mb-4 ">{item.name.common}</h3>
+              <p className="font-[600] text-[16px]">
                 Population:{' '}
-                <span className="text-gray-500">
+                <span className="text-[16px] font-[300]">
                   {item.population.toLocaleString()}
                 </span>
               </p>
-              <p className="font-semibold text-base">
-                Region:{' '}
-                <span className="text-gray-500">{item.region}</span>
-              </p>
-              <p className="font-semibold text-base">
-                Capital:{' '}
-                <span className="text-gray-500">{item.capital}</span>
-              </p>
+              <p className="font-[600] text-[16px]">Region: <span className='text-[16px] font-[300]'>{item.region}</span></p>
+              <p className="font-[600] text-[16px]">Capital: <span className='text-[16px] font-[300]'>{item.capital}</span></p>
             </div>
           </Link>
         ))
