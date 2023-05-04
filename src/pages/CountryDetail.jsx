@@ -3,21 +3,20 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
 import { useEffect } from 'react';
 import { searchByCode } from '../features/countries/countriesAction';
-import { reset } from '../features/countries/countriesSlice'
 import Loading from '../components/Loading'
 import NoDetails from '../components/NoDetails'
-import Error404 from '../components/Error404'
+import {reset} from '../features/countries/countriesSlice'
 
 const CountryDetail = () => {
   const darkMode = useSelector((state) => state.theme.darkMode);
   const mode = darkMode ? color.dark : color.light;
-  const { loading, countrySearched, error } = useSelector((state) => state.country);
+  const { loading, countrySearched } = useSelector((state) => state.country);
   const dispatch = useDispatch();
   const { code } = useParams();
   const item = countrySearched[0];
 
   useEffect(() => {
-    
+    dispatch(reset())
     if (code) {
       dispatch(searchByCode(code.toLowerCase()));
     }
@@ -29,10 +28,10 @@ const CountryDetail = () => {
         <div className={`w-full md:w-[1180px] px-6 ss:px-10 md:px-0 mx-auto py-12`}>
           <Link
             to="/"
-            className={`flex gap-2 justify-center py-1 ${mode.elements} rounded-[5px] w-[125px]
-          shadow-md`}
+            className={`flex gap-2 justify-center py-1 ${mode.elements} ${mode.text} rounded-[5px] w-[125px]
+          shadow-md items-center`}
           >
-            <span className="material-symbols-outlined">keyboard_backspace</span>
+            <i className="fa-solid fa-arrow-left"></i>
             <p>Back</p>
           </Link>
           <div className="pt-12">

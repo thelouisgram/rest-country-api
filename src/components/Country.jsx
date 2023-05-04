@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import Loading from "./Loading";
 import NotFound from "./NotFound";
 import Error404 from "./Error404"
-
+import {reset} from "../features/countries/countriesSlice";
 
 
 const Country = () => {
@@ -17,6 +17,8 @@ const Country = () => {
 
   useEffect(() => {
     dispatch(showAllCountries())
+    dispatch(reset())
+
 
     if (region) {
       dispatch(searchByRegion(region.toLowerCase()))
