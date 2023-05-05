@@ -54,7 +54,7 @@ const Country = () => {
 					<Link
 						to={`/${item.cioc}`}
 						key={index}
-						className={`w-[250px] rounded-[5px] ${mode.elements} mb-12 overflow-hidden shadow-md cursor-pointer`}
+						className={`w-[250px] rounded-[5px] ${mode.elements} mb-12 ss:mb-[60px] overflow-hidden shadow-md cursor-pointer`}
 					>
 						{/* Country's image */}
 						<img
