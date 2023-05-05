@@ -54,6 +54,8 @@ Your users should be able to:
 - TailwindCss
 - [React](https://reactjs.org/) - JS library
 - React-router
+- Fetch Api
+- Redux
 
 
 ### Continued development
