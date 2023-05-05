@@ -54,18 +54,18 @@ Your users should be able to:
 - TailwindCss
 - [React](https://reactjs.org/) - JS library
 - React-router
-- Fetch Api
+- Fetch API
 - Redux
 
+### What I learnt
 
-### Continued development
-
-Any possible improvement
--
+- How to fetch API in Redux and Axios
+- How to implement Redux
 
 ### Useful resources
 
 - ChatGPT
 
 ## Author
+
 - Frontend Mentor -https://www.frontendmentor.io/profile/thelouisgram
