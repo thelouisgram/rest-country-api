@@ -57,7 +57,7 @@ Your users should be able to:
 - Fetch API
 - Redux
 
-### What I learnt
+### What I learned
 
 - How to fetch API in Redux and Axios
 - How to implement Redux
